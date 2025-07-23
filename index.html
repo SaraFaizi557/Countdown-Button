@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown Button</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0d0d0d;
+    }
+
+    .count-btn {
+      padding: 20px 50px;
+      background: #ff0077;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .count-btn.loading {
+      background: #444;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <button class="count-btn">Click Me</button>
+
+  <script>
+    const btn = document.querySelector(".count-btn");
+    btn.addEventListener("click", () => {
+      if (!btn.classList.contains("loading")) {
+        btn.classList.add("loading");
+        btn.innerText = "Loading...";
+        setTimeout(() => {
+          btn.classList.remove("loading");
+          btn.innerText = "Done!";
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
